@@ -78,12 +78,16 @@ const Show: FC<BandProps> = (band) => {
     console.log("Form Submitted:", { tickets, formData });
   };
 
+  const eventDate = new Date(Number(band.event.date)).toLocaleString('en-US');
+
+  debugger
+
   return (
     <div className="event-container">
       <div className="event-details">
         <h1>rock</h1>
         <p>
-          <span>📅 Thursday, September 21 {band.event.date}</span>
+          <span>📅 {eventDate}</span>
           <br />
           <span>📍 {band.event.location}</span>
         </p>

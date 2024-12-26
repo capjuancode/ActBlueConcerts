@@ -49,11 +49,26 @@ const Show: FC<BandProps> = (band) => {
     }));
   };
 
+  const [total, setTotal] = useState<number>(0);
+
   const calculateTotal = (): number => {
-    return (
-      Object.values(tickets).reduce((total, ticket) => total + (ticket.count * ticket.cost), 0)
+    const newTotal = Object.values(tickets).reduce(
+      (total, ticket) => total + ticket.count * ticket.cost,
+      0
     );
+    setTotal(newTotal); // Update state with the calculated total
+    return newTotal; // Optionally return the calculated total
   };
+
+  useEffect(() => {
+    calculateTotal();
+  }, [tickets]); 
+
+  // const calculateTotal = (): number => {
+  //   return (
+  //     Object.values(tickets).reduce((total, ticket) => total + (ticket.count * ticket.cost), 0)
+  //   );
+  // };
 
 
   const [formData, setFormData] = useState({
@@ -75,7 +90,7 @@ const Show: FC<BandProps> = (band) => {
 
   const handleSubmit = (e: FormEvent): void => {
     e.preventDefault();
-    console.log("Form Submitted:", { tickets, formData });
+    console.log("Form Submitted:", { tickets, formData, calculateTotal });
   };
 
   const eventDate = new Date(Number(band.event.date)).toLocaleString('en-US');
@@ -104,7 +119,7 @@ const Show: FC<BandProps> = (band) => {
 
           <div className="total">
             <h3>TOTAL</h3>
-            <span>${calculateTotal()}</span>
+            <span>${total}</span>
           </div>
           <div className="form-group">
             <input

@@ -5,7 +5,7 @@ import {
   InertiaAppOptionsForCSR,
 } from "@inertiajs/inertia-react";
 
-const pages = import.meta.glob("./*.tsx");
+const pages = import.meta.glob("./*/*.tsx");
 
 const app = () =>
   createInertiaApp<InertiaAppOptionsForCSR<unknown>>({

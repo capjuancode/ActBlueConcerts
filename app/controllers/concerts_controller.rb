@@ -2,10 +2,11 @@ class ConcertsController < ApplicationController
   before_action :set_event, only: :show
 
   def index
+    render inertia: 'Concerts/Index', props: { events: Event.all}
   end
 
   def show
-    render inertia: 'BandForm', props: { event: @event, ticket_types: @event.ticket_types }
+    render inertia: 'Concerts/Show', props: { event: @event, ticket_types: @event.ticket_types }
   end
 
   private

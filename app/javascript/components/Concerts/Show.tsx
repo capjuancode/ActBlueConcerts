@@ -90,7 +90,7 @@ const Show: FC<BandProps> = (band) => {
 
   const handleSubmit = (e: FormEvent): void => {
     e.preventDefault();
-    console.log("Form Submitted:", { tickets, formData, calculateTotal });
+    console.log("Form Submitted:", { tickets, formData, total });
   };
 
   const eventDate = new Date(Number(band.event.date)).toLocaleString('en-US');

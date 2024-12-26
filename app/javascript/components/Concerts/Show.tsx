@@ -80,8 +80,6 @@ const Show: FC<BandProps> = (band) => {
 
   const eventDate = new Date(Number(band.event.date)).toLocaleString('en-US');
 
-  debugger
-
   return (
     <div className="event-container">
       <div className="event-details">

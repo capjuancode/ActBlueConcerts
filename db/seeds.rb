@@ -1,9 +1,43 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+Dir.glob('./db/band_json/*.json') do |rb_filename|
+  p "working on: #{rb_filename}..."
+
+  p "parsing reading and parse data in: #{rb_filename}..."
+  file_content = File.read(rb_filename)
+  data = JSON.parse(file_content)
+  p "FINISH parsing reading and parse data: #{rb_filename}..."
+
+  ticket_types = data.delete('ticketTypes')
+
+  p "Initializing EVENT #{data['name']}"
+  event = Event.new do |e|
+    e.name = data['name']
+    e.code_name = data['id']
+    e.date = data['date']
+    e.location = data['location']
+    e.description_blurb = data['description_blurb']
+    e.imgUrl = data['imgUrl']
+  end
+  p "FINISH Initializing EVENT #{data['name']}"
+
+  puts
+
+  p 'Adding tickets to event'
+  ticket_types.each do |ticket|
+    event.ticket_types.build do |t|
+      t.t_type = ticket['type']
+      t.name = ticket['name']
+      t.description = ticket['description']
+      t.cost = ticket['cost']
+    end
+  end
+  p 'FINISH Adding tickets to event'
+
+  puts
+
+  p 'SAVING'
+  event.save!
+  p 'FINISH SAVING'
+
+  p "FINISH working on: #{rb_filename}..."
+  puts
+end

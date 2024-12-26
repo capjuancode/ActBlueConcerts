@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  name: MyString
+  description: MyText
+  cost: 1
+  event: one
+
+two:
+  type: 
+  name: MyString
+  description: MyText
+  cost: 1
+  event: two

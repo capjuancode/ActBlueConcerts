@@ -13,7 +13,7 @@ interface BandProps {
     imgUrl: string;
   };
   ticket_types: Array<{
-    type: string;
+    t_type: string;
     name: string;
     description: string;
     cost: number;
@@ -21,23 +21,25 @@ interface BandProps {
   }>;
 }
 
+
 const Show: FC<BandProps> = (band) => {
+  // add count to each  ticket
   const updatedTickets = band.ticket_types.map((ticket) => ({
     ...ticket,
     count: 0,
   }));
-
+  
+  // makes it a object by type
   const ticketsByType = updatedTickets.reduce((acc, ticket) => {
-    acc[ticket.type] = ticket;
+    acc[ticket.t_type] = ticket;
     return acc;
   }, {} as Record<string, typeof updatedTickets[0]>);
 
 
-  const [tickets, setTickets] = useState({...ticketsByType});
+  const [tickets, setTickets] = useState(ticketsByType);
 
   const handleTicketChange = (e: ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
-
     setTickets((prevTickets) => ({
       ...prevTickets,
       [name]: {
@@ -95,7 +97,7 @@ const Show: FC<BandProps> = (band) => {
         <form onSubmit={handleSubmit}>
 
           {Object.entries(tickets).map(([_key, ticket], index) => (
-            <TicketItem key={index} type={ticket.type} name={ticket.name} description={ticket.description} cost={ticket.cost} count={ticket.count} handleTicketChange={handleTicketChange}  />
+            <TicketItem key={index} type={ticket.t_type} name={ticket.name} description={ticket.description} cost={ticket.cost} count={ticket.count} handleTicketChange={handleTicketChange}  />
           ))}
 
           <div className="total">

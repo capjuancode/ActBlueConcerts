@@ -17,7 +17,7 @@ const Index: React.FC<ConcertsProps> = ({events}) => {
 
   return (
     events.map((ticket) => (
-        <Event id={ticket.id} ticket={ticket} />
+        <Event key={ticket.id} id={ticket.id} ticket={ticket} />
     ))
     // <p>hello</p>
   );

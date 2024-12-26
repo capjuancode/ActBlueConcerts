@@ -1,13 +1,13 @@
 require "test_helper"
 
-class ConcertesControllerTest < ActionDispatch::IntegrationTest
+class ConcertsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get concertes_index_url
+    get concerts_index_url
     assert_response :success
   end
 
   test "should get show" do
-    get concertes_show_url
+    get concerts_show_url
     assert_response :success
   end
 end

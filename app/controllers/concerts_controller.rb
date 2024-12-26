@@ -1,4 +1,4 @@
-class ConcertesController < ApplicationController
+class ConcertsController < ApplicationController
   def index
   end
 

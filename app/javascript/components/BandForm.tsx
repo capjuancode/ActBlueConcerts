@@ -4,24 +4,25 @@ import TicketItem from './TicketItem.tsx'
 import './TicketForm.css'; // Ensure the CSS file is imported
 
 interface BandProps {
-  name: string,
-  id: number,
-  date: number,
-  location: string,
-  description_blurb: string,
-  imgUrl:string,
-  ticketTypes: Array<{
-    type: string,
-    name: string,
-    description: string,
-    cost: number,
-    count: number
-  }>
+  event: {
+    name: string;
+    id: number;
+    date: number;
+    location: string;
+    description_blurb: string;
+    imgUrl: string;
+  };
+  ticket_types: Array<{
+    type: string;
+    name: string;
+    description: string;
+    cost: number;
+    count: number;
+  }>;
 }
 
 const BandForm: FC<BandProps> = (band) => {
-
-  const updatedTickets = band.ticketTypes.map((ticket) => ({
+  const updatedTickets = band.ticket_types.map((ticket) => ({
     ...ticket,
     count: 0,
   }));
@@ -80,14 +81,14 @@ const BandForm: FC<BandProps> = (band) => {
       <div className="event-details">
         <h1>rock</h1>
         <p>
-          <span>📅 Thursday, September 21 {band.date}</span>
+          <span>📅 Thursday, September 21 {band.event.date}</span>
           <br />
-          <span>📍 {band.location}</span>
+          <span>📍 {band.event.location}</span>
         </p>
         <div className="event-image">
-          <img src={band.imgUrl} alt="Event" />
+          <img src={band.event.imgUrl} alt="Event" />
         </div>
-        <p className="event-description" dangerouslySetInnerHTML={{ __html:band.description_blurb}} />
+        <p className="event-description" dangerouslySetInnerHTML={{ __html:band.event.description_blurb}} />
       </div>
       <div className="ticket-form">
         <h2>Select Tickets</h2>

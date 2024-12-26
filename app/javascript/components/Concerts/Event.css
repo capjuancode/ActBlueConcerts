@@ -1,7 +1,7 @@
 body {
-    background-color: #436ea5;
-  }
-  
+  background-color: #436ea5;
+}
+
 .ticket {
   font-family: sans-serif;
 
@@ -13,60 +13,60 @@ body {
   height: 300px;
   border-radius: 15px;
   -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
-            filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3)); 
-  display: block;
+          filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+  display: flex;
+  flex-direction: column;
   margin: 10% auto auto auto;
-  color: #fff;;
+  color: #fff;
 }
 
 .date {
+  display: flex;
+  align-items: flex-start;
   margin: 15px;
   -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
-            filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3)); 
+          filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
 }
 
-.date .day{
+.date .day {
   font-size: 80px;
-  float: left;
 }
 
 .date .month-and-time {
-  float: left;
-  margin: 15px 0 0 0;
+  margin-left: 15px;
   font-weight: bold;
 }
 
 .artist {
   font-size: 30px;
-  margin: 10px 100px 0 40px;
-  float: left;
+  margin: 10px 40px 0 40px;
   font-weight: bold;
   -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
-            filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3)); 
+          filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
 }
 
 .location {
-  float: left;
-  margin: 135px 0 0 78px;
+  display: flex;
+  align-items: center;
+  margin: 20px 0 0 40px;
   font-size: 30px;
   font-weight: bold;
+  position: relative;
   -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
-            filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3)); 
+          filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
 }
 
 .location::before {
   background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/cb/QRCodeWikipedia.png');
   background-size: 110px 110px;
-  width: 110px; 
+  width: 110px;
   height: 110px;
-  content:"";
-  display: inline-block;
-  float: left;
+  content: "";
   position: absolute;
   left: -160px;
   bottom: 5px;
   -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
-            filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3)); 
+          filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
 }
 
 .rip {
@@ -77,10 +77,15 @@ body {
   left: 530px;
 }
 
+.cta {
+  display: flex;
+  justify-content: flex-end; /* Align items to the right */
+  align-items: flex-start; /* Align items to the top */
+  position: relative; /* Ensure the container can handle positioned children if needed */
+  height: 100%; /* Optional, depending on your layout */
+}
+
 .cta .buy {
-  position: absolute;
-  top: 135px;
-  right: 15px;
   display: block;
   font-size: 12px;
   font-weight: bold;
@@ -89,11 +94,9 @@ body {
   border-radius: 25px;
   color: #fff;
   text-decoration: none;
-  -webkit-transform: rotate(-90deg);
-        -ms-transform: rotate(-90deg);
-            transform: rotate(-90deg);
-  -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
-            filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3)); 
+  transform: rotate(-90deg);
+  filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+  margin: 0; /* Reset margins if any */
 }
 
 .small {
@@ -101,9 +104,9 @@ body {
 }
 
 .ticket-1 {
-    background-image: url(https://images.unsplash.com/photo-1483101974978-cf266fdf1139?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3289&q=80);
+  background-image: url(https://images.unsplash.com/photo-1483101974978-cf266fdf1139?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3289&q=80);
 }
 
-.ticket-2{
-    background-image: url(https://images.unsplash.com/photo-1550184658-ff6132a71714?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2180&q=80);
+.ticket-2 {
+  background-image: url(https://images.unsplash.com/photo-1550184658-ff6132a71714?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2180&q=80);
 }

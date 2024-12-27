@@ -25,29 +25,30 @@ const Event: React.FC<EventProps> = ({ ticket }) => {
   return (
     
     <div className="ticket">
-      <div className="date">
-        <span className="day">{day}</span>
-        <span className="month-and-time">
-          {month}
+      <div className='tiket-info'>
+        <div className="date">
+          <span className="day">{day}</span>
+          <span className="month-and-time">
+            {month}
+            <br />
+            <span className="small">{time}</span>
+          </span>
+        </div>
+
+        <div className="artist">
+          <span className="name">{name}</span>
           <br />
-          <span className="small">{time}</span>
-        </span>
+          <span className="live small">LIVE</span>
+        </div>
+
+        <div className="location">
+          <span>{location}</span>
+          <br />
+          <span className="small" ></span>
+        </div>
+
+        <div className="rip"></div>
       </div>
-
-      <div className="artist">
-        <span className="name">{name}</span>
-        <br />
-        <span className="live small">LIVE</span>
-      </div>
-
-      <div className="location">
-        <span>{location}</span>
-        <br />
-        <span className="small" ></span>
-      </div>
-
-      <div className="rip"></div>
-
       <div className="cta">
         <a href={`/concerts/${id}`}>
           <button className="buy">

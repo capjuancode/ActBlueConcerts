@@ -1,10 +1,11 @@
 body {
-  background-color: #436ea5;
+  background-color: #f7f8fa;
 }
 
 .ticket {
+  display: flex;
+  justify-content: space-between;
   font-family: sans-serif;
-
   background-repeat: no-repeat;
   background-position: top;
   background-size: 100%;
@@ -12,12 +13,14 @@ body {
   width: 700px;
   height: 300px;
   border-radius: 15px;
-  -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
-          filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
-  display: flex;
-  flex-direction: column;
+  -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0));
+          filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0));
   margin: 10% auto auto auto;
   color: #fff;
+}
+
+.ticket-info {
+  flex: 1 1 70%;
 }
 
 .date {
@@ -39,7 +42,7 @@ body {
 
 .artist {
   font-size: 30px;
-  margin: 10px 40px 0 40px;
+  padding: 0 40px 0 40px;
   font-weight: bold;
   -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
           filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
@@ -64,7 +67,7 @@ body {
   content: "";
   position: absolute;
   left: -261px;
-  bottom: -42px;
+  bottom: -17px;
   -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
           filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
 }
@@ -78,11 +81,10 @@ body {
 }
 
 .cta {
+  flex: 1 1 30%;
   display: flex;
-  justify-content: flex-end; /* Align items to the right */
-  align-items: flex-start; /* Align items to the top */
-  position: relative; /* Ensure the container can handle positioned children if needed */
-  height: 100%; /* Optional, depending on your layout */
+  justify-content: center;
+  align-items: center;
 }
 
 .cta .buy {

@@ -97,13 +97,15 @@ const Show: FC<BandProps> = (band) => {
 
   return (
     <div className="event-container">
-      <div className="event-details">
+      <div className="event-header">
         <h1>rock</h1>
         <p>
           <span>📅 {eventDate}</span>
           <br />
           <span>📍 {band.event.location}</span>
         </p>
+      </div>
+      <div className="event-details">
         <div className="event-image">
           <img src={band.event.imgUrl} alt="Event" />
         </div>
@@ -118,11 +120,12 @@ const Show: FC<BandProps> = (band) => {
           ))}
 
           <div className="total">
-            <h3>TOTAL</h3>
-            <span>${total}</span>
+            <span>TOTAL</span>
+            <span className="total-value">${total}</span>
           </div>
           <div className="form-group">
             <input
+              className="first-name"
               type="text"
               name="firstName"
               placeholder="First Name"
@@ -131,6 +134,7 @@ const Show: FC<BandProps> = (band) => {
               required
             />
             <input
+              className="last-name"
               type="text"
               name="lastName"
               placeholder="Last Name"
@@ -139,6 +143,7 @@ const Show: FC<BandProps> = (band) => {
               required
             />
             <input
+              className="address"
               type="text"
               name="address"
               placeholder="Address"
@@ -150,9 +155,12 @@ const Show: FC<BandProps> = (band) => {
           <h3>Payment Details</h3>
           <div className="payment-group">
             <input
+              className="payment-number"
               type="text"
+              inputMode="numeric"
               name="cardNumber"
-              placeholder="0000 0000 0000 0000"
+              autoComplete="cc-number"
+              placeholder="XXXX XXXX XXXX XXXX"
               value={formData.cardNumber}
               onChange={handleInputChange}
               required
